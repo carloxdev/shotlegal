@@ -1,0 +1,16 @@
+
+.legal-article header {
+    text-align: left !important;
+}
+
+
+.legal-btn-eliminar {
+    margin-top: -30px !important; 
+}
+
+
+@media (min-width: 1200px) {
+/*     .col-lg-12 {
+        float: none;
+    } */
+}

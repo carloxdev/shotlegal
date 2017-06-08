@@ -1,0 +1,82 @@
+
+{% extends 'master.html' %}
+
+{% load static from staticfiles %}
+
+{% load tags_fields %}
+
+{% block css %}
+
+    <!-- Bootstrap WYSIHTML5 -->
+    <link rel="stylesheet" href="{% static 'libs/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css' %}">
+
+    <!-- Legalink's Styles -->
+    <link rel="stylesheet" href="{% static 'owner_info.css' %}" type="text/css"/>
+
+{% endblock css %}
+
+{% load crispy_forms_tags %}
+
+{% block contenido %}
+
+
+    <div class="row">
+        <div class="col-xs-12">
+
+            {% if messages %}
+
+                {% for message in messages %}
+                <div class="alert {{ message.tags }}" role="alert">
+                    {{message}}
+                </div>
+                {% endfor %}
+            {% endif %}
+
+            <article class="legal-article">
+                
+                <header>
+                    <h3 class="legal-titulo">Mi Información</h3>
+                </header>
+
+                <hr class="legal-article-line">
+
+                <form 
+                action="" 
+                method="POST" 
+                class="row" 
+                enctype="multipart/form-data"> {% csrf_token %}
+                
+                    <div class="legal-article-form row">
+                    	<div class="col-md-8 legal-subsection">
+                    		{% tag_input form.bio %}
+                            {% tag_input form.twitter_url %}
+                            {% tag_input form.facebook_url %}
+                            {% tag_input form.pinteres_url %}
+                            {% tag_input form.telefono %}
+                    	</div>
+						<div class="col-md-4 legal-subsection">
+							{% tag_image form.imagen imagen %}
+						</div>
+                    </div>
+
+                    <footer class="legal-article-botones">
+                        <input type="submit" class="btn btn-lg btn-warning" value="Actualizar">
+                    </footer>
+
+                </form>
+
+            </article>
+        </div>
+    </div>
+
+{% endblock contenido %}
+
+{% block scripts %}
+
+    <!-- Bootstrap WYSIHTML5 -->
+    <script type="text/javascript" src="{% static 'libs/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js' %}"></script>
+
+    <!-- Legalink's Scripts -->
+    <script type="text/javascript" src="{% static 'owner_info.js' %}"></script>    
+
+{% endblock scripts %}
