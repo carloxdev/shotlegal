@@ -7,7 +7,8 @@ from django.contrib.auth import views as auth_views
 
 # Librerias Propias
 from .views import Login
-from .views import OwnerInfo
+from .views import OwnerInfoEdit
+from .views import OwnerInfoView
 
 urlpatterns = [
     url(
@@ -22,8 +23,13 @@ urlpatterns = [
         name='logout'
     ),
     url(
-        r'^owner_info/$',
-        OwnerInfo.as_view(),
-        name="owner_info"
+        r'^owner_info/edit/$',
+        OwnerInfoEdit.as_view(),
+        name="owner_info_edit"
+    ),
+    url(
+        r'^owner_info/view/$',
+        OwnerInfoView.as_view(),
+        name="owner_info_view"
     ),
 ]

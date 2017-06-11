@@ -1,0 +1,79 @@
+
+{% extends 'master.html' %}
+
+{% load static from staticfiles %}
+
+{% load tags_fields %}
+
+{% block css %}
+
+    <!-- Legalink's Styles -->
+    <link rel="stylesheet" href="{% static 'owner_info.css' %}" type="text/css"/>
+
+{% endblock css %}
+
+{% load crispy_forms_tags %}
+
+{% block contenido %}
+
+
+    <div class="row">
+        <div class="col-xs-12">
+
+            {% if messages %}
+
+                {% for message in messages %}
+                <div class="alert {{ message.tags }}" role="alert">
+                    {{message}}
+                </div>
+                {% endfor %}
+            {% endif %}
+
+            <article class="legal-article">
+                
+                <header>
+                    <h3 class="legal-titulo">¿Quien escribe?</h3>
+                </header>
+
+                <hr class="legal-article-line">
+
+                <form 
+                action="" 
+                method="POST" 
+                class="row" 
+                enctype="multipart/form-data"> {% csrf_token %}
+                
+                    <div class="legal-article-form row">
+
+                    	<div class="col-md-8 legal-subsection">
+                            {{ registro.comentarios }}
+                    	</div>
+						<div class="col-md-4 legal-subsection">
+                            <img id="img_preview" 
+                            class="img-responsive img-thumbnail legal-img"
+                            {% if registro.imagen %}
+                            src="{{ MEDIA_URL }}{{ registro.imagen }}" 
+                            {% else %}
+                            src="{% static 'images/decoradores/no-image-user.jpg' %}" 
+                            {% endif %}
+                            alt="User Image">
+						</div>
+                    </div>
+
+                </form>
+
+            </article>
+        </div>
+    </div>
+
+{% endblock contenido %}
+
+{% block scripts %}
+
+    <!-- Bootstrap WYSIHTML5 -->
+    <script type="text/javascript" src="{% static 'libs/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js' %}"></script>
+
+    <!-- Legalink's Scripts -->
+    <script type="text/javascript" src="{% static 'owner_info.js' %}"></script>    
+
+{% endblock scripts %}

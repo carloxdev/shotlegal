@@ -16,6 +16,8 @@ from django.contrib.auth import authenticate
 from django.contrib.auth import login
 
 # Own's Libraries
+from home.mytools import Validador
+
 from .models import Profile
 from .forms import ProfileForm
 
@@ -58,9 +60,9 @@ class Login(View):
         return render(request, self.template_name, {})
 
 
-class OwnerInfo(View):
+class OwnerInfoEdit(View):
 
-    template_name = 'owner_info.html'
+    template_name = 'owner_info_edit.html'
 
     def get_UrlImagen(self, _imagen):
         imagen = ""
@@ -92,6 +94,7 @@ class OwnerInfo(View):
             upd_profile = formulario.save(commit=False)
 
             profile.bio = upd_profile.bio
+            profile.comentarios = upd_profile.comentarios
             profile.imagen = upd_profile.imagen
             profile.twitter_url = upd_profile.twitter_url
             profile.facebook_url = upd_profile.facebook_url
@@ -104,6 +107,22 @@ class OwnerInfo(View):
         contexto = {
             'form': formulario,
             'imagen': self.get_UrlImagen(profile.imagen)
+        }
+
+        return render(_request, self.template_name, contexto)
+
+
+class OwnerInfoView(View):
+
+    template_name = 'owner_info_view.html'
+
+    def get(self, _request):
+
+        profile = Profile.objects.get(is_owner=True)
+
+        contexto = {
+            'registro': profile,
+            'imagen': Validador.get_UrlImagen(profile.imagen)
         }
 
         return render(_request, self.template_name, contexto)

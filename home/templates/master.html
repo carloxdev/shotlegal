@@ -57,9 +57,9 @@
                                 <div class="collapse navbar-collapse" id="menu">
 
                                     <ul class="nav navbar-nav navbar-right">
-                                        <li><a href="#">¿Quien escribe?</a></li>
-                                        <li><a href="#">Formatos</a></li>
-                                        <li><a href="#">Herramientas</a></li>
+                                        <li><a href="{% url 'seguridad:owner_info_view' %}">¿Quien escribe?</a></li>
+                                        <!-- <li><a href="#">Formatos</a></li> -->
+                                        <!-- <li><a href="#">Herramientas</a></li> -->
 
                                         {% if user.is_authenticated %}
                                         <li class="dropdown">
@@ -71,7 +71,7 @@
                                                 {% if user.is_staff %}
                                                 <li>
                                                     {% if user.profile.is_owner %}
-                                                    <a href="{% url 'seguridad:owner_info' %}">
+                                                    <a href="{% url 'seguridad:owner_info_edit' %}">
                                                         <i class="fa fa-info-circle" aria-hidden="true"></i>
                                                         Mi información
                                                     </a>                                                    

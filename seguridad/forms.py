@@ -18,11 +18,11 @@ class ProfileForm(ModelForm):
         fields = '__all__'
         exclude = [
             'user',
-            'comentarios',
             'is_owner',
         ]
         widgets = {
             'bio': Textarea(attrs={'class': 'form-control'}),
+            'comentarios': Textarea(attrs={'class': 'form-control'}),
             'twitter_url': TextInput(attrs={'class': 'form-control'}),
             'facebook_url': TextInput(attrs={'class': 'form-control'}),
             'pinteres_url': TextInput(attrs={'class': 'form-control'}),
