@@ -86,13 +86,13 @@
                     {% endif %}
                 </section>
 
-                <section class="legal-about-info">
+                <section class="legal-about-info text-justify">
                     
                     {{ propietario.bio|safe }}
                 </section>
 
                 <footer class="legal-about-botones">
-                    <a href="#" class="btn btn-primary legal-about-btn-leer" role="button">Leer mas</a>
+                    <a href="{% url 'seguridad:owner_info_view' %}" class="btn btn-primary legal-about-btn-leer" role="button">Leer mas</a>
                 </footer>
                 
             </aside>        

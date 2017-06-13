@@ -5,3 +5,8 @@
 .legal-subsection-field {
 	padding: 0 2em 0;
 }
+
+.legal-subsection-text {
+
+	text-align: justify;
+}
