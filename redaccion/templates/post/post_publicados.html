@@ -52,16 +52,30 @@
                     </ul>                      
 
                 </nav>
+
+                <div class="row">
+                    
+                    <div class="col-xs-12 col-sm-3">
+                        <section class="legal-article-image ">
+                            {% if registro.imagen %}
+                                <img class="img-responsive legal-post-leftimg" src="{{ MEDIA_URL }}{{ registro.imagen }}" alt="Post Imagen">
+                            {% endif %}                    
+                        </section>                        
+
+                    </div>
+
+                    <div class="col-xs-12 col-sm-9">
+                        <section class="legal-article-avance">
+                            {{registro.contenido |safe|truncatechars:320 }}
+                        </section>                        
+
+                    </div>
+
+                </div>
                 
-                <section class="legal-article-image">
-                    {% if registro.imagen %}
-                        <img class="img-responsive" src="{{ MEDIA_URL }}{{ registro.imagen }}" alt="Post Imagen">
-                    {% endif %}                    
-                </section>
+
     
-                <section class="legal-article-avance">
-                    {{registro.contenido |safe|truncatechars:320 }}
-                </section>
+
 
                 <footer class="legal-article-botones">
                     <a href="{% url 'redaccion:post_consultar' registro.pk %}" class="btn btn-primary btn-lg legal-btn-leer" role="button">Leer mas</a>
