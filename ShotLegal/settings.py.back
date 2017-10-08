@@ -9,12 +9,12 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/1.10/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '(&rs2qazrjbtyc^s7zyr@wn320+&d6u!%-6p%f_)%)xgxmv@%%'
+SECRET_KEY = 'xxxxx'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['*', '159.203.121.211',]
+ALLOWED_HOSTS = ['xxxxxxx',]
 
 LOGIN_URL = 'seguridad:login'
 
@@ -85,9 +85,9 @@ WSGI_APPLICATION = 'Legalink.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'legalinkdb',
-        'USER': 'root',
-        'PASSWORD': 'sintaxymysql',
+        'NAME': 'xxxxxx',
+        'USER': 'xxxxxx',
+        'PASSWORD': 'xxxxxxx',
         'HOST': '',
         'PORT': '',
     },
