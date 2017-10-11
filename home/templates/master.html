@@ -14,7 +14,7 @@
         <link rel="stylesheet" type="text/css" href="{% static 'libs/bootstrap/3.3.7/css/bootstrap.min.css' %}"/>
 
         <!-- PACE -->
-        <link rel="stylesheet" type="text/css" href="{% static 'libs/pace/1.0.0/pace.theme.css' %}"/>        
+        <link rel="stylesheet" type="text/css" href="{% static 'libs/pace/1.0.0/pace.theme.css' %}"/>
 
         <!-- Awesome Icons -->
         <link rel="stylesheet" type="text/css" href="{% static 'libs/awesome-icons/4.7.0/css/font-awesome.min.css' %}">
@@ -24,7 +24,7 @@
 
         {% block css %}
 
-        {% endblock css %}        
+        {% endblock css %}
 
     </head>
     <body>
@@ -40,9 +40,9 @@
                         <nav class="navbar navbar-default legalink-navbar">
 
                             <div class="container-fluid">
-                            
+
                                 <div class="navbar-header">
-                                                        
+
                                     <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu">
                                         <span class="sr-only">Menu</span>
                                         <span class="icon-bar"></span>
@@ -51,7 +51,7 @@
                                     </button>
 
                                     <a class="navbar-brand" href="{% url 'redaccion:post_publicados' %}">Inicio</a>
-                                    
+
                                 </div>
 
                                 <div class="collapse navbar-collapse" id="menu">
@@ -74,7 +74,7 @@
                                                     <a href="{% url 'seguridad:owner_info_edit' %}">
                                                         <i class="fa fa-info-circle" aria-hidden="true"></i>
                                                         Mi información
-                                                    </a>                                                    
+                                                    </a>
                                                     {% endif%}
 
                                                     <a href="{% url 'redaccion:post_administracion' %}">
@@ -82,7 +82,7 @@
                                                         Administracion de Posts
                                                     </a>
                                                 </li>
-                                                {% endif%}                                  
+                                                {% endif%}
                                                 <li>
                                                     <a href="{% url 'seguridad:logout' %}">
                                                         <i class="fa fa-sign-out" aria-hidden="true"></i>
@@ -92,26 +92,26 @@
                                             </ul>
                                         </li>
                                         {% else %}
-                                        
+
                                         <li><a href="{% url 'seguridad:login' %}">Login</a></li>
-                                        
+
                                         {% endif %}
                                     </ul>
                                 </div>
-                            </div>      
-                        </nav>            
-                    </header>                    
+                            </div>
+                        </nav>
+                    </header>
                 </div>
-                
+
             </div>
 
-            <div class="row">            
+            <div class="row">
                 <div class="col-xs-12">
 
                 {% block contenido %}
 
                 {% endblock contenido %}
-                    
+
                 </div>
 
             </div>
@@ -126,6 +126,9 @@
 
         <!-- Pace -->
         <script type="text/javascript" src="{% static 'libs/pace/1.0.0/pace.min.js' %}"></script>
+
+        <!-- Own's Libraries -->
+        <script type="text/javascript" src="{% static 'master.js' %}"></script>
 
         {% block scripts %}
 

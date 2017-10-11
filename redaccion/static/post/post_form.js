@@ -10,7 +10,7 @@ var formulario = null
 \*-----------------------------------------------*/
 
 $(document).ready(function () {
-    formulario = new TargetaFormulario() 
+    formulario = new TargetaFormulario()
 })
 
 
@@ -19,7 +19,7 @@ $(document).ready(function () {
             OBJETO: TargetaFormulario
 \*-----------------------------------------------*/
 
-function TargetaFormulario() { 
+function TargetaFormulario() {
 
     this.$contenido = $('#id_contenido')
 
@@ -27,18 +27,18 @@ function TargetaFormulario() {
 }
 TargetaFormulario.prototype.init_Components = function () {
 
+    this.$contenido.summernote({ height: 300 });
+    // this.$contenido.wysihtml5({
+    //     toolbar: {
+    //         "font-styles": true,
+    //         "emphasis": true,
+    //         "lists": true,
+    //         "html": false,
+    //         "link": false,
+    //         "image": false,
+    //         "color": false,
+    //         "blockquote": false,
+    //     }
+    // })
 
-    this.$contenido.wysihtml5({
-        toolbar: {
-            "font-styles": true,
-            "emphasis": true,
-            "lists": true,
-            "html": false,
-            "link": false,
-            "image": false,
-            "color": false,
-            "blockquote": false,
-        }
-    })
-    
 }

@@ -6,11 +6,12 @@
 
 {% block css %}
 
-    <!-- Bootstrap WYSIHTML5 -->
-    <link rel="stylesheet" href="{% static 'libs/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css' %}">
+    <!-- Summernote -->
+    <link rel="stylesheet" type="text/css" href="{% static 'libs/summernote/0.8.3/summernote.css' %}"/>
 
     <!-- Legalink's Styles -->
     <link rel="stylesheet" href="{% static 'post/post_form.css' %}" type="text/css"/>
+
 
 {% endblock css %}
 
@@ -22,14 +23,14 @@
     <div class="row">
         <div class="col-xs-12">
             <article class="legal-article">
-                
+
                 <header>
                     {% if operacion == "Editar" %}
                     <h3 class="legal-titulo">Edicion del Post: {{form.instance.pk}} </h3>
                     <button type="button" class="btn btn-danger pull-right legal-btn-eliminar">
                         <i class="fa fa-trash-o" aria-hiden="true"></i>
                         <span class="hidden-xs">Eliminar</span>
-                        
+
                     </button>
                     {% else %}
                     <h3 class="legal-titulo">Crear Post </h3>
@@ -38,11 +39,11 @@
 
                 <hr class="legal-article-line">
 
-                <form 
-                action="" 
-                method="POST" 
+                <form
+                action=""
+                method="POST"
                 enctype="multipart/form-data"> {% csrf_token %}
-                
+
                     <div class="legal-article-form">
 
                         {% tag_input form.titulo %}
@@ -74,10 +75,10 @@
 
 {% block scripts %}
 
-    <!-- Bootstrap WYSIHTML5 -->
-    <script type="text/javascript" src="{% static 'libs/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js' %}"></script>
+    <!-- Summernote -->
+    <script type="text/javascript" src="{% static 'libs/summernote/0.8.3/summernote.min.js' %}"></script>
 
     <!-- Legalink's Scripts -->
-    <script type="text/javascript" src="{% static 'post/post_form.js' %}"></script>    
+    <script type="text/javascript" src="{% static 'post/post_form.js' %}"></script>
 
 {% endblock scripts %}
