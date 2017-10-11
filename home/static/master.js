@@ -8,5 +8,6 @@ $(document).ready(function () {
         // Only show the progress on regular and ajax-y page navigation,
         // not every request
         restartOnRequestAfter: false,
+        startOnPageLoad: false,
     }
 })
