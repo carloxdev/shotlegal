@@ -5,7 +5,7 @@
 {% block css %}
 
     <!-- Legalink' Styles -->
-    <link rel="stylesheet" href="{% static 'post/post_administracion.css' %}" type="text/css"/>
+    <link rel="stylesheet" href="{% static 'post/post_administracion.min.css' %}" type="text/css"/>
 
 {% endblock css %}
 
@@ -20,10 +20,10 @@
                     <h3 class="legal-titulo">Administracion de Posts</h3>
                 </header>
 
-                <hr class="legal-article-line">     
+                <hr class="legal-article-line">
 
                 <nav class="legal-article-toolbar">
-                    
+
                     <div class="row">
 
                         <div class="col-xs-12 col-sm-6">
@@ -32,7 +32,7 @@
                                 Nuevo post
                             </a>
                         </div>
-                        
+
                         <br class="visible-xs">
                         <br class="visible-xs">
 
@@ -40,7 +40,7 @@
                             <form action="" method="GET">
                                 <div class="input-group">
                                     <input type="text" class="form-control" name="q" placeholder="escribe texto a buscar" value="{{ request.GET.q }}">
-                                    
+
                                     <span class="input-group-btn">
                                       <button type="submit" id="boton_buscar" class="btn btn-info btn-flat">
                                         <i class="fa fa-search"></i>
@@ -51,7 +51,7 @@
                             </form>
                         </div>
                     </div>
-                </nav>  
+                </nav>
 
                 {% if registros %}
 
@@ -60,7 +60,7 @@
                     {% for registro in registros %}
                         <a href="{% url 'redaccion:post_editar' registro.pk %}" class="list-group-item">
                             {{ registro.titulo }}
-                            <span 
+                            <span
                             class="badge
                             {% if registro.status == "PUB" %}
                                 badge-publicado
@@ -89,25 +89,21 @@
                                 <li><a href="?page={{ registros.next_page_number }}&q={{ request.GET.q }}">&raquo;</a></li>
                             {% endif %}
                         </ul>
-                    </div>                         
+                    </div>
                 </div>
-                      
+
                 {% else %}
 
                 <div class="legal-article-avance text-center">
-                    <h1>Sin posts</h1>    
+                    <h1>Sin posts</h1>
                 </div>
-                    
-                {% endif %}                
 
-            </article>    
- 
-        
+                {% endif %}
+
+            </article>
+
+
         </div>
     </div>
 
 {% endblock contenido %}
-
-{% block scripts %}
-
-{% endblock scripts %}

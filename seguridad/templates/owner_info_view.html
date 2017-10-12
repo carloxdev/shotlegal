@@ -8,7 +8,7 @@
 {% block css %}
 
     <!-- Legalink's Styles -->
-    <link rel="stylesheet" href="{% static 'owner_info.css' %}" type="text/css"/>
+    <link rel="stylesheet" href="{% static 'owner_info.min.css' %}" type="text/css"/>
 
 {% endblock css %}
 
@@ -30,7 +30,7 @@
             {% endif %}
 
             <article class="legal-article">
-                
+
                 <header>
                     <h3 class="legal-titulo">¿Quien escribe?</h3>
                 </header>
@@ -38,19 +38,19 @@
                 <hr class="legal-article-line">
 
                 <div class="row">
-                
+
                     <div class="legal-article-form row">
 
                     	<div class="col-md-8 legal-subsection legal-subsection-text">
                             {{ registro.comentarios }}
                     	</div>
 						<div class="col-md-4 legal-subsection">
-                            <img id="img_preview" 
+                            <img id="img_preview"
                             class="img-responsive img-thumbnail legal-img"
                             {% if registro.imagen %}
-                            src="{{ MEDIA_URL }}{{ registro.imagen }}" 
+                            src="{{ MEDIA_URL }}{{ registro.imagen }}"
                             {% else %}
-                            src="{% static 'images/decoradores/no-image-user.jpg' %}" 
+                            src="{% static 'images/decoradores/no-image-user.jpg' %}"
                             {% endif %}
                             alt="User Image">
 						</div>
@@ -70,6 +70,6 @@
     <script type="text/javascript" src="{% static 'libs/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js' %}"></script>
 
     <!-- Legalink's Scripts -->
-    <script type="text/javascript" src="{% static 'owner_info.js' %}"></script>    
+    <script type="text/javascript" src="{% static 'owner_info.min.js' %}"></script>
 
 {% endblock scripts %}

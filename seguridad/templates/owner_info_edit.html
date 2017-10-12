@@ -7,11 +7,8 @@
 
 {% block css %}
 
-    <!-- Bootstrap WYSIHTML5 -->
-    <link rel="stylesheet" href="{% static 'libs/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css' %}">
-
     <!-- Legalink's Styles -->
-    <link rel="stylesheet" href="{% static 'owner_info.css' %}" type="text/css"/>
+    <link rel="stylesheet" href="{% static 'owner_info.min.css' %}" type="text/css"/>
 
 {% endblock css %}
 
@@ -33,19 +30,19 @@
             {% endif %}
 
             <article class="legal-article">
-                
+
                 <header>
                     <h3 class="legal-titulo">Mi Información</h3>
                 </header>
 
                 <hr class="legal-article-line">
 
-                <form 
-                action="" 
-                method="POST" 
-                class="row" 
+                <form
+                action=""
+                method="POST"
+                class="row"
                 enctype="multipart/form-data"> {% csrf_token %}
-                
+
                     <div class="legal-article-form row">
                     	<div class="col-md-8 legal-subsection">
                     		{% tag_input form.bio %}
@@ -74,10 +71,7 @@
 
 {% block scripts %}
 
-    <!-- Bootstrap WYSIHTML5 -->
-    <script type="text/javascript" src="{% static 'libs/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js' %}"></script>
-
     <!-- Legalink's Scripts -->
-    <script type="text/javascript" src="{% static 'owner_info.js' %}"></script>    
+    <script type="text/javascript" src="{% static 'owner_info.min.js' %}"></script>
 
 {% endblock scripts %}

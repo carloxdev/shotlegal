@@ -5,14 +5,14 @@
 {% block css %}
 
     <!-- Legalink' Styles -->
-    <link rel="stylesheet" href="{% static 'post/post_view.css' %}" type="text/css"/>
+    <link rel="stylesheet" href="{% static 'post/post_view.min.css' %}" type="text/css"/>
 
 {% endblock css %}
 
 {% block contenido %}
 
     <div class="row">
-        
+
         <div class="col-xs-12 col-md-9">
 
             <article class="legal-article">
@@ -22,27 +22,27 @@
                     {% if user.is_superuser %}
                     <a href="{% url 'redaccion:post_editar' registro.pk %}" class="btn btn-warning pull-right legal-btn-editar">
                         <i class="fa fa-pencil" aria-hiden="true"></i>
-                    </a>                    
+                    </a>
                     {% endif %}
                 </header>
 
                 <hr class="legal-article-line">
-                
+
                 <nav class="legal-article-meta">
                     <ul>
                        <li>
                             <i class="fa fa-calendar" aria-hidden="true"></i>
-                            {{ registro.created_date|date:"M d, Y"}}                                       
-                       </li> 
+                            {{ registro.created_date|date:"M d, Y"}}
+                       </li>
                        <li>
                             <i class="fa fa-user" aria-hidden="true"></i>
-                            {{ registro.created_by }}                                       
-                       </li> 
+                            {{ registro.created_by }}
+                       </li>
                        <li class="hidden-xs">
                             <i class="fa fa-comment-o" aria-hidden="true"></i>
                             0 comentarios
-                       </li> 
-                    </ul>                      
+                       </li>
+                    </ul>
 
                 </nav>
 
@@ -51,9 +51,9 @@
                         <img class="img-responsive" src="{{ MEDIA_URL }}{{ registro.imagen }}" alt="Post Imagen">
                     {% else %}
                         <img class="img-responsive" src="{% static 'images/decoradores/no-image-user.jpg' %}" alt="Post Imagen">
-                    {% endif %}                    
+                    {% endif %}
                 </section>
-    
+
                 <section class="legal-article-avance">
                     {{ registro.contenido|safe}}
                 </section>
@@ -63,10 +63,10 @@
                         <i class="fa fa-arrow-left" aria-hidden="true"></i>
                         Regresar
                     </a>
-                </footer>                
+                </footer>
 
-            </article>        
-            
+            </article>
+
         </div>
 
         <aside class="col-xs-12 col-md-3">
@@ -87,15 +87,15 @@
                 </section>
 
                 <section class="legal-about-info text-justify">
-                    
+
                     {{ propietario.bio|safe }}
                 </section>
 
                 <footer class="legal-about-botones">
                     <a href="{% url 'seguridad:owner_info_view' %}" class="btn btn-primary legal-about-btn-leer" role="button">Leer mas</a>
                 </footer>
-                
-            </aside>        
+
+            </aside>
 
             <aside class="legal-social-media">
                 <a href="{{ propietario.facebook_url }}" class="fa fa-facebook-official fa-2x legal-link-facebook" aria-hidden="true"></a>
@@ -106,10 +106,8 @@
                 <!-- <i ></i> -->
             </aside>
 
-        </aside>        
+        </aside>
 
     </div>
 
 {% endblock contenido %}
-
-
