@@ -91,7 +91,7 @@ html, body {
 
         .legal-article header .legal-titulo:hover {
             text-decoration: none;
-            color: ##337ab7;
+            color: #337ab7;
         }
 
     .legal-article .legal-article-line {
@@ -105,8 +105,9 @@ html, body {
     }
 
         .legal-article .legal-portada img {
-            object-fit: fill;
+            object-fit: cover;
             width: 100%;
+            height: 400px;
         }
 
     .legal-article .legal-article-meta {
@@ -123,7 +124,8 @@ html, body {
 
         .legal-article .legal-article-image img {
             width: 100%;
-            object-fit: fill;
+            object-fit: contain;
+            height: 400px;
         }
 
     .legal-article .legal-article-avance {

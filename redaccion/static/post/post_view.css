@@ -1,8 +1,11 @@
 
+.legal-titulo-view {
+    font-size: 60px;   
+}
+
 .legal-btn-editar {
     display: none;
 }
-
 
 .legal-social-media {
     background-color: #FFFFFF;
