@@ -1,0 +1,87 @@
+
+{% extends 'master.html' %}
+
+{% load static from staticfiles %}
+
+{% load tags_fields %}
+
+{% block css %}
+
+    <!-- Legalink' Styles -->
+    <link rel="stylesheet" href="{% static 'post/post_view.min.css' %}" type="text/css"/>
+
+{% endblock css %}
+
+{% load crispy_forms_tags %}
+
+{% block contenido %}
+
+<div class="row">
+
+    <div class="col-xs-12 col-md-9">
+
+        <article class="legal-article">
+
+            <header>
+                <h3 class="legal-titulo">Disclaimer</h3>
+            </header>
+
+            <section class="legal-article-avance text-justify">
+                <p>
+                    Shotlegal es el blog donde se reflejan las opiniones personales del equipo, con el único afán de informar y divulgar contenido producido por el staff.
+                </p>
+                <p>
+                    Ninguna de las opiniones, consejos o información aquí reflejada debe tomarse como consejos legales o como asesoría legal.
+                </p>
+                <p>
+                    El equipo de Shotlegal no se hace responsable del uso o el manejo que el usuario haga del contenido y la información aquí expuesta
+                </p>
+            </section>
+
+            <footer class="legal-article-botones">
+                <a href="{% url 'redaccion:post_publicados' %}" class="btn btn-default btn-lg" role="button">
+                    <i class="fa fa-arrow-left" aria-hidden="true"></i>
+                    Regresar
+                </a>
+            </footer>
+
+        </article>
+
+    </div>
+
+    <aside class="col-xs-12 col-md-3">
+
+        <aside class="legal-about">
+            <header>
+                <h4 class="legal-about-title">¿Quienes Somos?</h4>
+            </header>
+
+            <section class="legal-about-info text-justify">
+
+                {{ propietario.bio|safe }}
+            </section>
+
+            <footer class="legal-about-botones text-center">
+                Bienvenido
+            </footer>
+
+        </aside>
+
+        <aside class="legal-social-media">
+            <a href="{{ propietario.facebook_url }}" class="fa fa-facebook-official fa-2x legal-link-facebook" aria-hidden="true"></a>
+            <a href="{{ propietario.pinteres_url }}" class="fa fa-pinterest fa-2x legal-link-facebook" aria-hidden="true"></a>
+            <a href="{{ propietario.twitter_url }}" class="fa fa-twitter-square fa-2x legal-link-facebook" aria-hidden="true"></a>
+            <a href="{{ propietario.telefono }}" class="fa fa-whatsapp fa-2x legal-link-facebook" aria-hidden="true"></a>
+
+            <!-- <i ></i> -->
+        </aside>
+
+    </aside>
+
+</div>
+
+{% endblock contenido %}
+
+{% block scripts %}
+
+{% endblock scripts %}

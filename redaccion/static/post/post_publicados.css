@@ -40,25 +40,30 @@
 
     .legal-about header {
         text-align: center;
-        border-bottom: 1px solid #ddd;
+        /*border-bottom: 1px solid #ddd;*/
         padding: 1em 0;
     }
 
         .legal-about header .legal-about-title {
-            color: #222E3E;
+            color: #18314d;
             margin:0;
             padding: 0;
         }
 
-    .legal-about-image {
-        margin-bottom: 1em;
-    }
+        .legal-about header .legal-about-title:hover {
+            color: #2b619f;
+        }
 
+    .legal-about-image {
+        /*margin-bottom: 1em;*/
+    }
 
 
     .legal-about-info {
         /*  */
-        padding: 0 1em 0
+        padding: 0 1em 0;
+        color: #2b4464;
+        font-size: 16px;
     }
 
     .legal-article-avance {
@@ -66,15 +71,12 @@
     }
 
     .legal-about-botones {
-        padding: .5em 0;
-        text-align: center;
+        margin-top: .7em;
+        margin-bottom: .7em;
+        color: #eda20a;
+        font-weight: bold;
+        font-size: 25px;
     }
-
-        .legal-about-botones .legal-about-btn-leer {
-            background-color: #424E5D;
-            color: white;
-            margin-bottom: .5em;
-        }
 
 
 @media (min-width: 750px) {
@@ -82,11 +84,6 @@
     .legal-btn-editar {
         display: block;
         margin-top: -30px !important;
-    }
-
-    .legal-post-leftimg {
-        margin-left: 2em;
-        /*margin-top: 1.8em;*/
     }
 
     .legal-social-media .legal-link-facebook {

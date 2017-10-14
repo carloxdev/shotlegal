@@ -1,5 +1,7 @@
 {% extends 'master.html' %}
 
+{% load humanize %}
+
 {% load static from staticfiles %}
 
 {% block css %}
@@ -18,33 +20,13 @@
             <article class="legal-article">
 
                 <header>
-                    <h3 class="legal-titulo">{{ registro.titulo }}</h3>
+                    <h1 class="legal-titulo">{{ registro.titulo }}</h1>
                     {% if user.is_superuser %}
                     <a href="{% url 'redaccion:post_editar' registro.pk %}" class="btn btn-warning pull-right legal-btn-editar">
                         <i class="fa fa-pencil" aria-hiden="true"></i>
                     </a>
                     {% endif %}
                 </header>
-
-                <hr class="legal-article-line">
-
-                <nav class="legal-article-meta">
-                    <ul>
-                       <li>
-                            <i class="fa fa-calendar" aria-hidden="true"></i>
-                            {{ registro.created_date|date:"M d, Y"}}
-                       </li>
-                       <li>
-                            <i class="fa fa-user" aria-hidden="true"></i>
-                            {{ registro.created_by }}
-                       </li>
-                       <li class="hidden-xs">
-                            <i class="fa fa-comment-o" aria-hidden="true"></i>
-                            0 comentarios
-                       </li>
-                    </ul>
-
-                </nav>
 
                 <section class="legal-article-image">
                     {% if registro.imagen %}
@@ -57,6 +39,11 @@
                 <section class="legal-article-avance">
                     {{ registro.contenido|safe}}
                 </section>
+
+                <nav class="legal-article-meta">
+                    <i class="fa fa-calendar" aria-hidden="true"></i>
+                    Publicado {{ registro.created_date|naturaltime}}
+                </nav>
 
                 <footer class="legal-article-botones">
                     <a href="{% url 'redaccion:post_publicados' %}" class="btn btn-default btn-lg" role="button">
@@ -73,26 +60,16 @@
 
             <aside class="legal-about">
                 <header>
-                    <h4 class="legal-about-title">Acerca de mi</h4>
+                    <h4 class="legal-about-title">¿Quienes Somos?</h4>
                 </header>
-
-                <!-- <hr class="legal-about-line"> -->
-
-                <section class="legal-about-image">
-                    {% if propietario.imagen %}
-                    <img class="img-responsive" src="{{ MEDIA_URL }}{{ propietario.imagen }}" alt="Imagen Autor">
-                    {% else %}
-                    <img class="img-responsive" src="{% static "images/decoradores/no-image-user.jpg" %}" alt="Imagen Autor">
-                    {% endif %}
-                </section>
 
                 <section class="legal-about-info text-justify">
 
                     {{ propietario.bio|safe }}
                 </section>
 
-                <footer class="legal-about-botones">
-                    <a href="{% url 'seguridad:owner_info_view' %}" class="btn btn-primary legal-about-btn-leer" role="button">Leer mas</a>
+                <footer class="legal-about-botones text-center">
+                    Bienvenido
                 </footer>
 
             </aside>

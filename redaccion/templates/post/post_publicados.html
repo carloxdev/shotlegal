@@ -1,5 +1,7 @@
 {% extends 'master.html' %}
 
+{% load humanize %}
+
 {% load static from staticfiles %}
 
 {% block css %}
@@ -11,7 +13,6 @@
 
 {% block contenido %}
 
-
     <div class="row">
 
         <div class="col-xs-12 col-md-9">
@@ -22,9 +23,9 @@
 
                 <header>
                     <a href="{% url 'redaccion:post_consultar' registro.pk %}">
-                        <h3 class="legal-titulo">
+                        <h1 class="legal-titulo">
                             {{ registro.titulo }}
-                        </h3>
+                        </h1>
                     </a>
                     {% if user.is_superuser %}
                     <a href="{% url 'redaccion:post_editar' registro.pk %}" class="btn btn-warning pull-right legal-btn-editar">
@@ -33,47 +34,22 @@
                     {% endif %}
                 </header>
 
-                <hr class="legal-article-line">
-
-                <nav class="legal-article-meta">
-                    <ul>
-                       <li>
-                            <i class="fa fa-calendar" aria-hidden="true"></i>
-                            {{ registro.created_date|date:"M d, Y"}}
-                       </li>
-                       <li>
-                            <i class="fa fa-user" aria-hidden="true"></i>
-                            {{ registro.created_by  }}
-                       </li>
-                       <li class="hidden-xs">
-                            <i class="fa fa-comment-o" aria-hidden="true"></i>
-                            0 comentarios
-                       </li>
-                    </ul>
-
-                </nav>
-
-                <div class="row">
-
-                    <div class="col-xs-12 col-sm-3">
-                        <section class="legal-article-image ">
-                            {% if registro.imagen %}
-                                <img class="img-responsive legal-post-leftimg" src="{{ MEDIA_URL }}{{ registro.imagen }}" alt="Post Imagen">
-                            {% endif %}
-                        </section>
-
-                    </div>
-
-                    <div class="col-xs-12 col-sm-9">
-                        <section class="legal-article-avance">
-                            {{registro.contenido|safe|truncatechars_html:320 }}
-                        </section>
+                <div class="row legal-portada">
+                    <div class="col-xs-12 col-sm-12">
+                        {% if registro.imagen %}
+                            <img class="img-responsive" src="{{ MEDIA_URL }}{{ registro.imagen }}" alt="Post Imagen">
+                        {% endif %}
                     </div>
                 </div>
 
+                <nav class="legal-article-meta">
+                    <i class="fa fa-calendar" aria-hidden="true"></i>
+                    Publicado {{ registro.created_date|naturaltime}}
+                </nav>
+
 
                 <footer class="legal-article-botones">
-                    <a href="{% url 'redaccion:post_consultar' registro.pk %}" class="btn btn-primary btn-lg legal-btn-leer" role="button">Leer mas</a>
+                    <a href="{% url 'redaccion:post_consultar' registro.pk %}" class="legal-btn-leer" role="button">Leer mas ...</a>
 
                     {% if user.is_superuser %}
                     <a href="{% url 'redaccion:post_editar' registro.pk %}" class="btn btn-warning btn-lg visible-xs-inline">
@@ -116,27 +92,16 @@
 
             <aside class="legal-about">
                 <header>
-                    <h4 class="legal-about-title">Acerca de mi </h4>
+                    <h4 class="legal-about-title">¿Quienes Somos?</h4>
                 </header>
-
-                <!-- <hr class="legal-about-line"> -->
-
-                <section class="legal-about-image">
-                    {% if propietario.imagen %}
-                    <img class="img-responsive" src="{{ MEDIA_URL }}{{ propietario.imagen }}" alt="Imagen Autor">
-                    {% else %}
-                    <img class="img-responsive" src="{% static "images/decoradores/no-image-user.jpg" %}" alt="Imagen Autor">
-                    {% endif %}
-
-                </section>
 
                 <section class="legal-about-info text-justify">
 
                     {{ propietario.bio|safe }}
                 </section>
 
-                <footer class="legal-about-botones">
-                    <a href="{% url 'seguridad:owner_info_view' %}" class="btn btn-primary legal-about-btn-leer" role="button">Leer mas</a>
+                <footer class="legal-about-botones text-center">
+                    Bienvenido
                 </footer>
 
             </aside>

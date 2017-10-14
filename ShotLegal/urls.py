@@ -11,6 +11,7 @@ from django.conf import settings
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+    url(r'', include('home.urls', namespace="home")),
     url(r'', include('redaccion.urls', namespace="redaccion")),
     url(r'', include('seguridad.urls', namespace="seguridad")),
 ]
