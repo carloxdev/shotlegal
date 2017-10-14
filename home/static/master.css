@@ -119,8 +119,12 @@ html, body {
 
     .legal-article .legal-article-image {
         margin-bottom: 1em;
-        width: 100%;
     }
+
+        .legal-article .legal-article-image img {
+            width: 100%;
+            object-fit: fill;
+        }
 
     .legal-article .legal-article-avance {
         /*margin-bottom: 1em;*/
