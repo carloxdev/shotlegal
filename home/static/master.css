@@ -1,7 +1,7 @@
-@import url('https://fonts.googleapis.com/css?family=Arimo|Assistant');
+@import url('https://fonts.googleapis.com/css?family=Assistant|Kreon');
 
 h1, h2, h3, h4, h5 {
-    font-family: 'Arimo', sans-serif;
+    font-family: 'Kreon', serif;
 }
 
 html, body {
@@ -21,7 +21,7 @@ html, body {
     }
 
     .navbar {
-        font-family: 'Arimo', sans-serif;  
+        font-family: 'Kreon', serif;
     }
 
 .legalink-header {
@@ -103,6 +103,11 @@ html, body {
     .legal-article .legal-portada {
         margin-bottom: 1em;
     }
+
+        .legal-article .legal-portada img {
+            object-fit: fill;
+            width: 100%;
+        }
 
     .legal-article .legal-article-meta {
         margin-left: 1em;
