@@ -104,11 +104,15 @@ html, body {
         margin-bottom: 1em;
     }
 
-        .legal-article .legal-portada img {
-            object-fit: cover;
-            width: 100%;
-            height: 400px;
+        .legal-article .legal-portada-container {
+
         }
+
+            .legal-article .legal-portada-container .legal-portada img {
+                object-fit: cover;
+                width: 100%;
+                height: 400px;
+            }
 
     .legal-article .legal-article-meta {
         margin-left: 1em;
@@ -189,13 +193,20 @@ html, body {
 
 }
 
-
-
-
 @media (min-width: 768px) {
+
     .navbar-nav.navbar-center {
         position: absolute;
         left: 50%;
         transform: translatex(-50%);
+    }
+
+    .legal-article .legal-portada-container {
+        padding-left: 4em;
+        padding-right: 4em;
+    }
+
+    .legal-article .legal-article-meta {
+        margin-left: 3em;
     }
 }

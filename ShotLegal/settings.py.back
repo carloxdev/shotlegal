@@ -57,7 +57,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'Legalink.urls'
+ROOT_URLCONF = 'ShotLegal.urls'
 
 TEMPLATES = [
     {
@@ -76,7 +76,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'Legalink.wsgi.application'
+WSGI_APPLICATION = 'ShotLegal.wsgi.application'
 
 
 # Database
