@@ -8,6 +8,8 @@ from .views import PostConsultar
 from .views import PostNuevo
 from .views import PostEditar
 
+app_name= 'redaccion'
+
 urlpatterns = [
     url(r'^$', PostPublicados.as_view(), name="post_publicados"),
     url(r'^post/$', PostAdministracion.as_view(), name="post_administracion"),

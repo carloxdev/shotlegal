@@ -7,8 +7,8 @@ from __future__ import unicode_literals
 from django.shortcuts import render
 from django.shortcuts import redirect
 
-from django.core.urlresolvers import reverse
-
+# from django.core.urlresolvers import reverse
+from django.urls import reverse
 from django.views.generic.base import View
 
 from django.contrib import messages
@@ -28,7 +28,7 @@ class Login(View):
 
     def get(self, request):
 
-        if request.user.is_authenticated():
+        if request.user.is_authenticated:
             return redirect(reverse('redaccion:post_administracion'))
 
         else:

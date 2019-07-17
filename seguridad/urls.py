@@ -3,12 +3,15 @@
 # Librerias Django
 from django.conf.urls import url
 from django.conf import settings
-from django.contrib.auth import views as auth_views
+# from django.contrib.auth import views as auth_views
+from django.contrib.auth.views import LogoutView
 
 # Librerias Propias
 from .views import Login
 from .views import OwnerInfoEdit
 from .views import OwnerInfoView
+
+app_name= 'seguridad'
 
 urlpatterns = [
     url(
@@ -18,7 +21,8 @@ urlpatterns = [
     ),
     url(
         r'^logout/$',
-        auth_views.logout,
+        # auth_views.logout,
+        LogoutView.as_view(),
         {'next_page': settings.PUBLICACIONES_URL},
         name='logout'
     ),
